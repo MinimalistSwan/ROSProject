@@ -41,8 +41,6 @@ def callback(data):
 
 # To move the robot to a specified pose.
 def move_robot(pose, speed, height, lower=False):
-    print("moving") 
-    
     # Set the velocity scaling factor for the robot's movement.
     velocity(group, speed)
     
@@ -54,8 +52,6 @@ def move_robot(pose, speed, height, lower=False):
         pose.pose.position.z = group.get_current_pose().pose.position.z
     else:
         pose.pose.position.z += height
-        
-    print(f"Target: {pose}")  
 
     # Set the target pose for the robot and execute the movement.
     group.set_pose_target(pose)
@@ -78,8 +74,6 @@ def listener():
 
 # Function to move the robot to the "Home" named pose (sleeping pose).
 def sleep_pose(speed=1):
-    print("sleeping pose")
-    
     # Set the velocity and move the robot to the predefined "Home" pose.
     velocity(group, speed)
     group.set_named_target("Home")  
